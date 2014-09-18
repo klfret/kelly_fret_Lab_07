@@ -2,8 +2,9 @@ alert("Lab 7 JSON Objects - JavaScript works!- 18 September 2014");
 
 
 // global variables
-var newAccSpeed;
-var newDecSpeed;
+var accSpeed;
+var decSpeed;
+var currentSpeed;
 
 // object
 var myDrmCar = {
@@ -13,23 +14,44 @@ var myDrmCar = {
 			color:      "Maroon",
 			curSpeed:   0,
 			topSpeed:   150,
-			getAccSpeed: function(speedup) {
+			getAccSpeed: function(accel) {
 				var incSpeed;
 				
-				this.incSpeed = this.curSpeed + this.speedup;	
+				this.incSpeed = this.curSpeed + this.accel;	
 			
-				return incSpeed;
+				return accel;
 				
 				}	
-	
-	
-	
-	
 };
 
 
 // main code
 console.log("My dream car is a " + myDrmCar.color + ", " + myDrmCar.make + ", " + myDrmCar.model + ".");
-myDrmCar.getAccSpeed(newAccSpeed);
-console.log("The current speed is: " + newAccSpeed + "mph.");
+
+var speedArray = [70, 100,151];
+
+for (var i = 0; i < speedArray.length; i++) {
+	
+ 		currentSpeed = myDrmCar.getAccSpeed(speedArray[i]);
+		console.log("The current speed is " + currentSpeed + " mph.");
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
