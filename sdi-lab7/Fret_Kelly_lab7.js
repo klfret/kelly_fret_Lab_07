@@ -32,7 +32,7 @@ var myDreamCar = {
 				
 				if (this.currentSpeed <= this.topSpeed) {
 					
-					console.log("The current speed is " + this.currentSpeed + " mph.");
+					console.log("The current accelerated speed is " + this.currentSpeed + " mph.");
 					
 				} else {
 					
@@ -40,7 +40,7 @@ var myDreamCar = {
 					// if user's speed acceleration is greater than the top speed, assign topSpeed to currentSpeed
 					this.currentSpeed = this.topSpeed;
 				}					
-			
+				
 			return this.currentSpeed;
 				
 		},
@@ -48,7 +48,8 @@ var myDreamCar = {
 	
 		getDecSpeed: function(deceleration) {
 		
-			this.currentSpeed = this.currentSpeed - deceleration;
+			// this.currentSpeed = this.currentSpeed - deceleration;
+			this.currentSpeed = deceleration;
 			// console.log(this.currentSpeed);
 			if (this.currentSpeed < 0) {
 				
@@ -64,13 +65,15 @@ var myDreamCar = {
 
 
 // main code
-console.log("My dream car is a " + myDreamCar.color + ", fully loaded, " + myDreamCar.make + " " + myDreamCar.model + ".");
+console.log("My dream car is a " + myDreamCar.color + "or White, fully loaded, " + myDreamCar.make + " " + myDreamCar.model + ".");
 console.log("The vehicle is parked with a current speed of " + myDreamCar.currentSpeed + " mph, but has a top speed of " + myDreamCar.topSpeed + " mph.");
+console.log("\n");
+
 
 // for loop to call the getAccSpeed method and increase speed
 for (var i = 0; i < 3; i++) {
 	
-	increase = parseInt(prompt("Enter number to accelerate speed: ", "0"));
+	increase = parseInt(prompt("What speed do you want to accelerate to: ", "0"));
 	
 	//returnedAccSpeed = 
 	myDreamCar.getAccSpeed(increase);
@@ -78,21 +81,32 @@ for (var i = 0; i < 3; i++) {
 	//console.log(resultAccSpeed);
 };
 
+console.log("\n");
+console.log("The current speed is now " + myDreamCar.currentSpeed + " mph");
 
 // for loop to call the getDecSpeed method and decrease speed
 for (var i = 0; i < 3; i++) {
 	
+	// console.log("The current speed is now " + myDreamCar.currentSpeed + " mph");
 	
-	decrease = parseInt(prompt("Your current speed is " + myDreamCar.currentSpeed + ". \n\nEnter number to reduce speed: ", "5"));
-
+	decrease = parseInt(prompt("What speed do you want to decelerate to: ", "5"));
+	//parseInt(decrease);
 	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
+	
+	if (returnedDecSpeed <= 0) {
+	
+		console.log("The vehicle has come to a complete stop.")	;
+		break;
+	
+	}
+	
 	//myDreamCar.getDecSpeed(decrease);
 	
 	//resultDecSpeed = returnedDecSpeed;
 	//console.log("speed = " + returnedSpeed);
 };
 
-console.log("The final current speed is " + returnedDecSpeed + " mph.");
+console.log("After deceleration the final current speed is " + returnedDecSpeed + " mph.");
 
 
 
