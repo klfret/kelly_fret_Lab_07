@@ -30,7 +30,7 @@ var myDreamCar = {
 					
 				} else {
 					
-					console.log("Not allow to exceed the vehicle's top speed limit of " + this.topSpeed + " mph.");
+					console.log("Invalid speed. The speed cannot exceed " + this.topSpeed + " mph.");
 				}					
 			
 			return this.currentSpeed;
@@ -41,10 +41,10 @@ var myDreamCar = {
 		getDecSpeed: function(deceleration) {
 		
 			this.currentSpeed = this.currentSpeed - deceleration;
-			
-			if (this.CurrentSpeed > 0) {
+			// console.log(this.currentSpeed);
+			if (this.CurrentSpeed < 0) {
 				
-				
+				console.log("Invalid speed. The speed must be greater than 0.");
 			}
 		}
 };
@@ -54,7 +54,7 @@ var myDreamCar = {
 console.log("My dream car is a " + myDreamCar.color + ", " + myDreamCar.make + " " + myDreamCar.model + ".");
 console.log("The vehicle is parked with a current speed of " + myDreamCar.currentSpeed + " mph, but has a top speed of " + myDreamCar.topSpeed + " mph.");
 
-// for loop to call the getAccSpeed method
+// for loop to call the getAccSpeed method and increase speed
 for (var i = 0; i < 3; i++) {
 	
 	returnedAccSpeed = myDreamCar.getAccSpeed(increase);
@@ -63,7 +63,7 @@ for (var i = 0; i < 3; i++) {
 };
 
 
-// for loop to call the getDecSpeed method
+// for loop to call the getDecSpeed method and decrease speed
 for (var i = 0; i < 3; i++) {
 	
 	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
