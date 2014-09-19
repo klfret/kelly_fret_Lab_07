@@ -7,9 +7,10 @@
 //in mind that the current speed can never exceed the top speed of the vehicle.
 
 // global variables
-var increase = 40;
-var decrease = 30;
-var resultSpeed;
+var increase;
+var decrease;
+var resultAccSpeed;
+var resultDecSpeed;
 var returnedAccSpeed;
 var returnedDecSpeed;
 
@@ -24,6 +25,8 @@ var myDreamCar = {
 			topSpeed:       175,
 			
 			getAccSpeed:    function(acceleration) {
+				
+				// this.currentSpeed = this.currentSpeed + acceleration;
 				
 				this.currentSpeed = acceleration;
 				
@@ -45,7 +48,7 @@ var myDreamCar = {
 		
 			this.currentSpeed = this.currentSpeed - deceleration;
 			// console.log(this.currentSpeed);
-			if (this.CurrentSpeed < 0) {
+			if (this.CurrentSpeed <= 0) {
 				
 				console.log("Invalid speed. The speed must be greater than 0.");
 			}
@@ -57,28 +60,32 @@ var myDreamCar = {
 
 
 // main code
-console.log("My dream car is a " + myDreamCar.color + ", " + myDreamCar.make + " " + myDreamCar.model + ".");
+console.log("My dream car is a " + myDreamCar.color + ", fully loaded, " + myDreamCar.make + " " + myDreamCar.model + ".");
 console.log("The vehicle is parked with a current speed of " + myDreamCar.currentSpeed + " mph, but has a top speed of " + myDreamCar.topSpeed + " mph.");
 
 // for loop to call the getAccSpeed method and increase speed
 for (var i = 0; i < 3; i++) {
 	
-	returnedAccSpeed = myDreamCar.getAccSpeed(increase);
-	increase = increase + returnedAccSpeed;
+	increase = parseInt(prompt("Enter the vehicle's speed ", "0"));
 	
+	returnedAccSpeed = myDreamCar.getAccSpeed(increase);
+	resultAccSpeed = returnedAccSpeed;
+	//console.log(resultAccSpeed);
 };
 
 
 // for loop to call the getDecSpeed method and decrease speed
 for (var i = 0; i < 3; i++) {
-	console.log("initial " + decrease);
+	
+	decrease = parseInt(prompt("Enter number for speed reduction: ", "5"));
+
 	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
-	//console.log(returnedDecSpeed);
-	resultSpeed = returnedDecSpeed;
-	console.log("second " + resultSpeed);
+	
+	//resultDecSpeed = returnedDecSpeed;
+	console.log("speed = " + returnedSpeed);
 };
 
-console.log("The final speed is " + resultSpeed + " mph.");
+console.log("The final current speed is " + resultDecSpeed + " mph.");
 
 
 
