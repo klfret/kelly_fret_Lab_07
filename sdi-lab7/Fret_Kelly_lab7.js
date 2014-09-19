@@ -7,9 +7,9 @@
 //in mind that the current speed can never exceed the top speed of the vehicle.
 
 // global variables
-var increase = 55;
-var decrease;
-var resultSpeed;
+var increase = 40;
+var decrease = 30;
+//var resultSpeed;
 
 // object
 var myDreamCar = {
@@ -19,39 +19,57 @@ var myDreamCar = {
 			color:          "Maroon",
 			currentSpeed:   0,
 			topSpeed:       175,
+			
 			getAccSpeed:    function(acceleration) {
 				
 				this.currentSpeed = acceleration;
 				
 				if (this.currentSpeed <= this.topSpeed) {
 					
-					//this.currentSpeed = this.currentSpeed + acceleration;
-					console.log("The current speed is " + this.currentSpeed + "mph.");
+					console.log("The current speed is " + this.currentSpeed + " mph.");
 					
 				} else {
 					
-					console.log("Not allow to exceed the vehicle's top speed limit of " + this.topSpeed + "mph.");
+					console.log("Not allow to exceed the vehicle's top speed limit of " + this.topSpeed + " mph.");
 				}					
 			
 			return this.currentSpeed;
 				
+		},
+
+	
+		getDecSpeed: function(deceleration) {
+		
+			this.currentSpeed = this.currentSpeed - deceleration;
+			
+			if (this.CurrentSpeed > 0) {
+				
+				
 			}
+		}
 };
 
 
 // main code
 console.log("My dream car is a " + myDreamCar.color + ", " + myDreamCar.make + " " + myDreamCar.model + ".");
-console.log("This vehicle has a top speed of " + myDreamCar.topSpeed + "mph.");
+console.log("The vehicle is parked with a current speed of " + myDreamCar.currentSpeed + " mph, but has a top speed of " + myDreamCar.topSpeed + " mph.");
 
-
+// for loop to call the getAccSpeed method
 for (var i = 0; i < 3; i++) {
 	
-	returnedSpeed = myDreamCar.getAccSpeed(increase);
-	increase = increase + returnedSpeed;
-	console.log(increase);
+	returnedAccSpeed = myDreamCar.getAccSpeed(increase);
+	increase = increase + returnedAccSpeed;
+	
 };
 
 
+// for loop to call the getDecSpeed method
+for (var i = 0; i < 3; i++) {
+	
+	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
+	decrease = decrease - returnedDecSpeed;
+	
+};
 
 
 
