@@ -3,8 +3,8 @@
 
 
 // global variables
-var increase;
-var decrease;
+var increase = 20;
+var decrease = 20;
 //var returnedAccSpeed;
 var returnedDecSpeed;
 
@@ -66,9 +66,11 @@ console.log("\n");
 // for loop to call the getAccSpeed method and increase the speed
 for (var i = 0; i < 3; i++) {
 	
-	increase = parseInt(prompt("Enter number to accelerate speed: ", "0"));
+	// increase = parseInt(prompt("Enter number to accelerate speed: ", "0"));
 	
 	myDreamCar.getAccSpeed(increase);
+	
+	increase+=20;
 	
 };
 
@@ -78,9 +80,14 @@ console.log("The current speed is now " + myDreamCar.currentSpeed + " mph.");
 // for loop to call the getDecSpeed method and decrease the speed
 for (var i = 0; i < 3; i++) {
 	
-	decrease = parseInt(prompt("Enter number to decelerate speed: ", "5"));
+	// decrease = parseInt(prompt("Enter number to decelerate speed: ", "5"));
 
 	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
+	
+	console.log(returnedDecSpeed);  //  *************
+	decrease-=5;
+	
+	
 	
 	if (returnedDecSpeed <= 0) {
 	
@@ -91,4 +98,5 @@ for (var i = 0; i < 3; i++) {
 	
 };
 
+console.log("\n");
 console.log("After deceleration the final current speed is " + returnedDecSpeed + " mph.");
