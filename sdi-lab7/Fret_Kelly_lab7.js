@@ -9,7 +9,10 @@
 // global variables
 var increase = 40;
 var decrease = 30;
-//var resultSpeed;
+var resultSpeed;
+var returnedAccSpeed;
+var returnedDecSpeed;
+
 
 // object
 var myDreamCar = {
@@ -46,6 +49,9 @@ var myDreamCar = {
 				
 				console.log("Invalid speed. The speed must be greater than 0.");
 			}
+			
+		return this.currentSpeed;
+		
 		}
 };
 
@@ -65,13 +71,14 @@ for (var i = 0; i < 3; i++) {
 
 // for loop to call the getDecSpeed method and decrease speed
 for (var i = 0; i < 3; i++) {
-	
+	console.log("initial " + decrease);
 	returnedDecSpeed = myDreamCar.getDecSpeed(decrease);
-	decrease = decrease - returnedDecSpeed;
-	
+	//console.log(returnedDecSpeed);
+	resultSpeed = returnedDecSpeed;
+	console.log("second " + resultSpeed);
 };
 
-
+console.log("The final speed is " + resultSpeed + " mph.");
 
 
 
