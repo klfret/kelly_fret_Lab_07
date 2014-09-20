@@ -9,7 +9,7 @@
 
 
 // global variables
-var increase = 30;
+var increase = 0;
 var decrease = 35;
 var returnedDecSpeed;
 
